@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: demo
+  data:
+    mongodb:
+      uri: ${MONGO_DB_URI}
+      database: ${MONGO_DB_NAME}
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+    jwt-config:
+      secret-key: ${JWT_CONFIG_SECRET_KEY}
+mongock:
+  migration-scan-package:
+    - com.example.demo.migration
+server:
+  port: ${SERVER_PORT}
+frontend-app:
+  origin: ${FRONTEND_ORIGIN}
+  redirect-url: ${FRONTEND_ORIGIN}/oauth2/redirect
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO
